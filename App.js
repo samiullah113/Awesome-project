@@ -1,20 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+
+
+import { Box, NativeBaseProvider } from 'native-base';
+import { Provider } from 'react-redux';
+import { Counter } from './Components/features/Counter';
+import { store } from './Components/store';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+
+  
+    <NativeBaseProvider>
+      <Provider store={store}>
+      
+      
+      <Box flex={1} bg={'white'} mt={'20%'} mx={'10'} _text={{fontSize:33,textAlign:'center',mb:10}}> Hellow World
+      <Counter></Counter>
+
+      </Box>
+      </Provider>
+    </NativeBaseProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
